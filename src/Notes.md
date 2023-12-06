@@ -57,3 +57,21 @@ By default, many semantic elements in HTML have a role.
 If you're working with elements that do not have a default role or if you want to specify a different role, the role attribute can be used to add the desired role.
 
 > To use an anchor element as a button in the navbar, you can add role='button'.
+
+### getByRole Options
+
+name // underline this.
+
+The accessible name is for simple cases equal to
+
+1. the label of a form element
+2. the text content of a button or
+3. the value of the aria-label attribute
+
+Other Options that can be used:
+
+- name
+- level
+- hidden
+- selected
+- checked
