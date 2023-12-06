@@ -12,5 +12,8 @@ describe("Application", () => {
 
     const termElement = screen.getByRole("checkbox");
     expect(termElement).toBeInTheDocument();
+
+    const submitButtonElement = screen.getByRole("button");
+    expect(submitButtonElement).toBeInTheDocument();
   });
 });
