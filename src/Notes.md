@@ -46,6 +46,8 @@ The suffix can be one of Role, LabelText, PlaceHolderText, Text, DisplayValue, A
 
 > getBy.. class of queries return the matching node for a query, and throw a descriptive error if no elements match or if more than one match is found.
 
+## React Testing Tutorial - 18 - getByRole
+
 ### getByRole
 
 > getByRole queries for elements with the given role
@@ -57,6 +59,8 @@ By default, many semantic elements in HTML have a role.
 If you're working with elements that do not have a default role or if you want to specify a different role, the role attribute can be used to add the desired role.
 
 > To use an anchor element as a button in the navbar, you can add role='button'.
+
+## React Testing Tutorial - 19 - getByRole Options
 
 ### getByRole Options
 
@@ -75,3 +79,7 @@ Other Options that can be used:
 - hidden
 - selected
 - checked
+
+## React Testing Tutorial - 20 - getByLabelText
+
+### getByLabelText
