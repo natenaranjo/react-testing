@@ -83,3 +83,5 @@ Other Options that can be used:
 ## React Testing Tutorial - 20 - getByLabelText
 
 ### getByLabelText
+
+getByLabelText will search for the label that matches the given text, then fin dthe element associated with that label.
