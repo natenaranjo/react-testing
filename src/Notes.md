@@ -85,3 +85,9 @@ Other Options that can be used:
 ### getByLabelText
 
 getByLabelText will search for the label that matches the given text, then fin dthe element associated with that label.
+
+## React Testing Tutorial - 21 - getByPlaceholderText
+
+## getByPlaceholderText
+
+getByPlaceholderText will search for all elements with a placeholder attribute and find one that matches the given text.
