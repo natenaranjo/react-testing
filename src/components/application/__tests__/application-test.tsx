@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Application } from "../application";
+import exp from "constants";
 
 describe("Application", () => {
   test("renders correctly", () => {
@@ -28,6 +29,9 @@ describe("Application", () => {
 
     const nameElement3 = screen.getByPlaceholderText("Fullname");
     expect(nameElement3).toBeInTheDocument();
+
+    const nameElement4 = screen.getByDisplayValue("John Doe");
+    expect(nameElement4).toBeInTheDocument();
 
     const bioElement = screen.getByRole("textbox", {
       name: "Bio",

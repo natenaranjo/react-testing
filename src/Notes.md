@@ -99,3 +99,9 @@ getByPlaceholderText will search for all elements with a placeholder attribute a
 getByText will search for all elements that have a text node with textContent matching the given text.
 
 Typically, you'd use this to find paragraph, div or span elements.
+
+## React Testing Tutorial - 23 - getByDisplayValue
+
+### getByDisplayValue
+
+getByDisplayValue returns the input, textarea, or select element that has the matching display value.
