@@ -1,46 +1,149 @@
-# Getting Started with Create React App
+## React Testing Tutorial - 16 - What to test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### _What to test?_
 
-## Available Scripts
+1. Test component renders
+2. Test component renders with props
+3. Test component renders in different states
+4. Test component reacts to events
 
-In the project directory, you can run:
+### _What not to test?_
 
-### `npm start`
+1. Implementation details
+2. Third party code
+3. Code that is not important from a user point of view
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## React Testing Tutorial - 17 - RTL Queries
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### _RTL Queries_
 
-### `npm test`
+- Every test we write generally involves the following basic steps
+  1. Render the component
+  2. Find an element rendered by the component
+  3. Assert against the element found in step 2 which will pass or fail the test
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To render the component, we use the render method from RTL
+For assertion, we use expect passing in a value and combine it with a matcher function from jest or jest-dom
+Queries are the methods that Testing Library provides to find elements on the page.
 
-### `npm run build`
+To find a single element on the page, we have
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- getBy..
+- queryBy..
+- findBy..
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To find multiple elements on the page, we have
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- getAllBy..
+- queryAllBy..
+- findAllBy..
 
-### `npm run eject`
+> The two dots at the end of each represent needs to be followed by the suffix.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The suffix can be one of Role, LabelText, PlaceHolderText, Text, DisplayValue, AltText, Title, and finally TestId.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### _getBy... queries_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> getBy.. class of queries return the matching node for a query, and throw a descriptive error if no elements match or if more than one match is found.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## React Testing Tutorial - 18 - getByRole
 
-## Learn More
+### _getByRole_
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> getByRole queries for elements with the given role
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Role refers to the ARIA (Accessible Rich Internet Applications) role which provides semantic meaning to content to ensure people using assistive technologies are able to use them.
+
+By default, many semantic elements in HTML have a role.
+
+If you're working with elements that do not have a default role or if you want to specify a different role, the role attribute can be used to add the desired role.
+
+> To use an anchor element as a button in the navbar, you can add role='button'.
+
+```js
+const jobLocationElement = screen.getByRole("combobox");
+expect(jobLocationElement).toBeInTheDocument();
+```
+
+## React Testing Tutorial - 19 - getByRole Options
+
+### _getByRole Options_
+
+_name_
+
+The accessible name is for simple cases equal to
+
+1. the label of a form element
+2. the text content of a button or
+3. the value of the aria-label attribute
+
+Other Options that can be used:
+
+- name
+- level
+- hidden
+- selected
+- checked
+
+```js
+const nameElement = screen.getByRole("textbox", {
+  name: "Name",
+});
+expect(nameElement).toBeInTheDocument();
+```
+
+## React Testing Tutorial - 20 - getByLabelText
+
+### _getByLabelText_
+
+getByLabelText will search for the label that matches the given text, then fin dthe element associated with that label.
+
+```js
+const nameElement2 = screen.getByLabelText("Name");
+expect(nameElement2).toBeInTheDocument();
+```
+
+## React Testing Tutorial - 21 - getByPlaceholderText
+
+### _getByPlaceholderText_
+
+getByPlaceholderText will search for all elements with a placeholder attribute and find one that matches the given text.
+
+```js
+const nameElement3 = screen.getByPlaceholderText("Fullname");
+expect(nameElement3).toBeInTheDocument();
+```
+
+## React Testing Tutorial - 22 - getByText
+
+### _getByText_
+
+getByText will search for all elements that have a text node with textContent matching the given text.
+
+Typically, you'd use this to find paragraph, div or span elements.
+
+```js
+const paragraphElement = screen.getByText("All fields are mandatory");
+expect(paragraphElement).toBeInTheDocument();
+```
+
+## React Testing Tutorial - 23 - getByDisplayValue
+
+### _getByDisplayValue_
+
+getByDisplayValue returns the input, textarea, or select element that has the matching display value.
+
+```ts
+const nameElement4 = screen.getByDisplayValue("John Doe");
+expect(nameElement4).toBeInTheDocument();
+```
+
+## React Testing Tutorial - 24 - getByAltText
+
+### _getByAltText_
+
+getByAltText will return the element that has the given alt text
+
+```js
+
+```
